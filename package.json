@@ -1,7 +1,7 @@
 {
-  "name": "deposity",
+  "name": "source-deposity",
   "version": "0.0.0",
-  "description": "Gulp deposity",
+  "description": "Source deposity",
   "main": "index.js",
   "private": true,
   "scripts": {
