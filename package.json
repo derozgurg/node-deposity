@@ -9,7 +9,6 @@
   },
   "gypfile": true,
   "dependencies": {
-    "bindings": "~1.2.1",
-    "source-deposity": "git+https://github.com/derozgurg/node-deposity.git"
+    "bindings": "~1.2.1"  
   }
 }
