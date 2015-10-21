@@ -1,12 +1,18 @@
 #include <node.h>
 #include <v8.h>
+#include <string>
+#include <vector>
 
 using namespace v8;
+
+string sources[2] = {"selam","naber"}
 
 void Method(const v8::FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = Isolate::GetCurrent();
   HandleScope scope(isolate);
-  args.GetReturnValue().Set(String::NewFromUtf8(isolate, "deposity ready"));
+  //args.GetReturnValue().Set(String::NewFromUtf8(isolate, "deposity ready"));
+
+  scope.close(String::NewFromUtf8(isolate, "deposity ready"));
 }
 
 void Init(Handle<Object> exports) {
