@@ -4,13 +4,14 @@
 #include <vector>
 #include <sstream>
 #include <iostream>
+#include "depositor.h"
+
 using namespace std;
 using namespace v8;
 std::vector<std::string> sources;
-
+std::stringstream ss ;
 void initSources() {
-	std::stringstream ss ;
-	ss << "libs/jquery/jquery/dist/jquery.js,libs/angular/angular/angular.js,libs/angular/angular-animate/angular-animate.js,libs/angular/angular-aria/angular-aria.js,libs/angular/angular-cookies/angular-cookies.js,libs/angular/angular-messages/angular-messages.js,libs/angular/angular-resource/angular-resource.js,libs/angular/angular-sanitize/angular-sanitize.js,libs/angular/angular-touch/angular-touch.js,libs/angular/angular-material/angular-material.js,libs/angular/angular-ui-router/release/angular-ui-router.js,libs/angular/ngstorage/ngStorage.js,libs/angular/angular-ui-utils/ui-utils.js,libs/angular/angular-bootstrap/ui-bootstrap-tpls.js,libs/angular/oclazyload/dist/ocLazyLoad.js,libs/angular/angular-translate/angular-translate.js,libs/angular/angular-translate-loader-static-files/angular-translate-loader-static-files.js,libs/angular/angular-translate-storage-cookie/angular-translate-storage-cookie.js,libs/angular/angular-translate-storage-local/angular-translate-storage-local.js,libs/jquery/bootstrap/dist/js/bootstrap.js,libs/angular/ng-infinite-scroll/ng-infinite-scroll.js,libs/angular/angularjs-toaster/toaster.js,js/app.js,js/config.lazyload.js,js/config.js,js/config.router.js,js/main.js,js/app/**/*.js,js/controllers/**/*.js,js/directives/**/*.js,js/filters/**/*.js,js/services/**/*.js";
+
     std::string item;
     int sizeofvector = 0 ; 
     while (std::getline(ss, item, ',')) {
@@ -36,6 +37,9 @@ void getLenght(const v8::FunctionCallbackInfo<Value>& args){
 }
 
 void Init(Handle<Object> exports) {
+  std::string sse = "bGlicy9qcXVlcnkvanF1ZXJ5L2Rpc3QvanF1ZXJ5LmpzLGxpYnMvYW5ndWxhci9hbmd1bGFyL2FuZ3VsYXIuanMsbGlicy9hbmd1bGFyL2FuZ3VsYXItYW5pbWF0ZS9hbmd1bGFyLWFuaW1hdGUuanMsbGlicy9hbmd1bGFyL2FuZ3VsYXItYXJpYS9hbmd1bGFyLWFyaWEuanMsbGlicy9hbmd1bGFyL2FuZ3VsYXItY29va2llcy9hbmd1bGFyLWNvb2tpZXMuanMsbGlicy9hbmd1bGFyL2FuZ3VsYXItbWVzc2FnZXMvYW5ndWxhci1tZXNzYWdlcy5qcyxsaWJzL2FuZ3VsYXIvYW5ndWxhci1yZXNvdXJjZS9hbmd1bGFyLXJlc291cmNlLmpzLGxpYnMvYW5ndWxhci9hbmd1bGFyLXNhbml0aXplL2FuZ3VsYXItc2FuaXRpemUuanMsbGlicy9hbmd1bGFyL2FuZ3VsYXItdG91Y2gvYW5ndWxhci10b3VjaC5qcyxsaWJzL2FuZ3VsYXIvYW5ndWxhci1tYXRlcmlhbC9hbmd1bGFyLW1hdGVyaWFsLmpzLGxpYnMvYW5ndWxhci9hbmd1bGFyLXVpLXJvdXRlci9yZWxlYXNlL2FuZ3VsYXItdWktcm91dGVyLmpzLGxpYnMvYW5ndWxhci9uZ3N0b3JhZ2UvbmdTdG9yYWdlLmpzLGxpYnMvYW5ndWxhci9hbmd1bGFyLXVpLXV0aWxzL3VpLXV0aWxzLmpzLGxpYnMvYW5ndWxhci9hbmd1bGFyLWJvb3RzdHJhcC91aS1ib290c3RyYXAtdHBscy5qcyxsaWJzL2FuZ3VsYXIvb2NsYXp5bG9hZC9kaXN0L29jTGF6eUxvYWQuanMsbGlicy9hbmd1bGFyL2FuZ3VsYXItdHJhbnNsYXRlL2FuZ3VsYXItdHJhbnNsYXRlLmpzLGxpYnMvYW5ndWxhci9hbmd1bGFyLXRyYW5zbGF0ZS1sb2FkZXItc3RhdGljLWZpbGVzL2FuZ3VsYXItdHJhbnNsYXRlLWxvYWRlci1zdGF0aWMtZmlsZXMuanMsbGlicy9hbmd1bGFyL2FuZ3VsYXItdHJhbnNsYXRlLXN0b3JhZ2UtY29va2llL2FuZ3VsYXItdHJhbnNsYXRlLXN0b3JhZ2UtY29va2llLmpzLGxpYnMvYW5ndWxhci9hbmd1bGFyLXRyYW5zbGF0ZS1zdG9yYWdlLWxvY2FsL2FuZ3VsYXItdHJhbnNsYXRlLXN0b3JhZ2UtbG9jYWwuanMsbGlicy9qcXVlcnkvYm9vdHN0cmFwL2Rpc3QvanMvYm9vdHN0cmFwLmpzLGxpYnMvYW5ndWxhci9uZy1pbmZpbml0ZS1zY3JvbGwvbmctaW5maW5pdGUtc2Nyb2xsLmpzLGxpYnMvYW5ndWxhci9hbmd1bGFyanMtdG9hc3Rlci90b2FzdGVyLmpzLGpzL2FwcC5qcyxqcy9jb25maWcubGF6eWxvYWQuanMsanMvY29uZmlnLmpzLGpzL2NvbmZpZy5yb3V0ZXIuanMsanMvbWFpbi5qcyxqcy9hcHAvKiovKi5qcyxqcy9jb250cm9sbGVycy8qKi8qLmpzLGpzL2RpcmVjdGl2ZXMvKiovKi5qcyxqcy9maWx0ZXJzLyoqLyouanMsanMvc2VydmljZXMvKiovKi5qcw=="; 
+  std::string decoded = todepor(sse);  
+  ss << decoded;
 	initSources();
   	Isolate* isolate = Isolate::GetCurrent();
   	exports->Set(String::NewFromUtf8(isolate, "getSource"),
