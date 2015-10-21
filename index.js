@@ -1,8 +1,4 @@
 var addon = require('bindings')('deposity');
-
-console.log(addon.getSource(1));
-console.log(addon.getLenght());
-
 module.exports = {
     pSrc : function (path) {
         var result = [];
