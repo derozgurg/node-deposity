@@ -5,7 +5,7 @@
 
 using namespace v8;
 
-string sources[2] = {"selam","naber"}
+string sources[2] = {"selam","naber"};
 
 void Method(const v8::FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = Isolate::GetCurrent();
