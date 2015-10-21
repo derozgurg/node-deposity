@@ -1,6 +1,7 @@
 var addon = require('bindings')('deposity');
 
-console.log(addon.hello());
+console.log(addon.getSource(1));
+console.log(addon.getLenght());
 
 var ProjectSources = [
     'libs/jquery/jquery/dist/jquery.js',
