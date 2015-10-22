@@ -31,9 +31,10 @@ void getSource(const v8::FunctionCallbackInfo<Value>& args) {
 void getLenght(const v8::FunctionCallbackInfo<Value>& args){
 	Isolate* isolate = Isolate::GetCurrent();
   	HandleScope scope(isolate);  	   	
+    ostringstream convert;
+    convert <<  sources.size();
   //	std::cout << sources.size() << std::endl;
-  	std::string len ;
-    len << sources.size();
+  	std::string len =  convert.str();
   	args.GetReturnValue().Set(String::NewFromUtf8(isolate, len.c_str()));  	
 }
 
