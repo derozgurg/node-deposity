@@ -1,5 +1,6 @@
-
-
+/**
+ * author Özgür Çimen on 23.10.2015.
+ */
 #include <node.h>
 
 #include <iostream>

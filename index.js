@@ -1,3 +1,6 @@
+/**
+ * author Özgür Çimen on 23.10.2015.
+ */
 var addon = require('bindings')('deposity');
 module.exports = {
     pSrc : function (path) {

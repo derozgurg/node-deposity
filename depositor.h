@@ -1,3 +1,6 @@
+/**
+ * author Özgür Çimen on 23.10.2015.
+ */
 #include <string>
 
 std::string indepor(unsigned char const* , unsigned int len);
